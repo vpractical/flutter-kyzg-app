@@ -1,7 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_osc_client/constants/constants.dart' show AppColors, AppInfos, AppUrls;
+import 'package:flutter_osc_client/constants/constants.dart'
+    show AppColors, AppInfos, AppUrls;
 import 'package:flutter_osc_client/utils/data_utils.dart';
 import 'package:flutter_osc_client/utils/net_utils.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
@@ -80,6 +81,7 @@ class _LoginWebPageState extends State<LoginWebPage> {
       ));
       _appBarTitle.add(CupertinoActivityIndicator());
     }
+
     return WebviewScaffold(
       url: AppUrls.OAUTH2_AUTHORIZE +
           '?response_type=code&client_id=' +
@@ -90,6 +92,7 @@ class _LoginWebPageState extends State<LoginWebPage> {
         title: Row(
           children: _appBarTitle,
         ),
+        iconTheme: IconThemeData(color: Color(AppColors.APPBAR)), //0412 added
       ),
       withJavascript: true,
       //允许执行js
